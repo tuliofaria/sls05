@@ -1,0 +1,16 @@
+version: '3'
+services:
+  serverless:
+    image: tuliofaria/docker-serverless
+    env_file: .env
+    volumes:
+      - ~/.aws:/root/.aws
+      - ~/.ssh:/root/.ssh
+      - .:/opt/app
+    ports:
+      - '8000:8000' #port for dynamoDB
+      - '3000:3000' #port for serverless-offline
+
+#    uncomment to start the app automatically
+#    run `yarn` first to install dependencies
+#    command: yarn start
